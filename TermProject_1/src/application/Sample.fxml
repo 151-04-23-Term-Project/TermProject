@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" layoutX="3.0" layoutY="-200.0">
+               <image>
+                  <Image url="@../../../../Downloads/TemplateChangePassword.JPG" />
+               </image>
+            </ImageView>
+            <Text fill="#5d6e52" layoutX="151.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm New Password" wrappingWidth="141.4609375" />
+            <Text fill="#5d6e52" layoutX="152.0" layoutY="-6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password" wrappingWidth="92.662109375" />
+            <Text fill="#5d6e52" layoutX="147.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Answer to Security Question" />
+            <Text fill="#5d6e52" layoutX="149.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Security Question" />
+            <TextField layoutX="150.0" layoutY="-5.0" prefHeight="26.0" prefWidth="148.0" promptText="Enter New Password" />
+            <TextField layoutX="148.0" layoutY="37.0" prefHeight="26.0" prefWidth="153.0" promptText="Confirm New Password" />
+            <TextField layoutX="147.0" layoutY="80.0" prefHeight="26.0" prefWidth="153.0" promptText="Confirm New Password" />
+            <TextField layoutX="145.0" layoutY="122.0" prefHeight="26.0" prefWidth="168.0" promptText="Save your response!" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#5d6e52" layoutX="153.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Password" wrappingWidth="111.935546875" />
+            <TextField layoutX="149.0" layoutY="154.0" prefHeight="26.0" prefWidth="149.0" promptText="Enter Default Password" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
