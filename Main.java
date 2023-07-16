@@ -76,31 +76,52 @@ public class Main extends Application {
         }
     }
 
-    private void showChangePasswordPage() {
-        GridPane gridPane = new GridPane();
-        gridPane.setPadding(new Insets(10));
-        gridPane.setVgap(5);
+      private void showChangePasswordPage() {
+        GridPane gridPane1 = new GridPane();
+        gridPane1.setPadding(new Insets(20));
+        gridPane1.setVgap(15);
+        GridPane gridPane2 = new GridPane();
+        gridPane2.setPadding(new Insets(20));
+        gridPane2.setVgap(15);
 
-        Label newPasswordLabel = new Label("New Password:");
-        PasswordField newPasswordField = new PasswordField();
+        Label currentPasswordLabel = new Label("Enter current Password:");// gridpane 00 - current password
+        PasswordField currentPasswordField = new PasswordField();         // gridpane 10 - enter current password
+        Label newPasswordLabel = new Label("Enter new Password:");		  // gridpane 01 - new password
+        PasswordField newPasswordField = new PasswordField();             // gridpane 11 - enter new password
+        Label confirmPasswordLabel = new Label("Confirm new Password:");  // gridpane 02 - confirm password
+        PasswordField confirmPasswordField = new PasswordField();         // gridpane 12 - enter new password
+        
+        gridPane1.add(currentPasswordLabel, 0, 0);
+        gridPane1.add(currentPasswordField, 1, 0);
+        gridPane1.add(newPasswordLabel, 0, 1);
+        gridPane1.add(newPasswordField, 1, 1);
+        gridPane1.add(confirmPasswordLabel, 0, 2);
+        gridPane1.add(confirmPasswordField, 1, 2);
+        
+        Label chooseSecurityQuestion = new Label("Choose Security question:");// gridpane 00 - current password
+        PasswordField secQuestionField = new PasswordField();         // gridpane 10 - enter current password
+        Label ansSecurityQuestion = new Label("Answer security question:");		  // gridpane 01 - new password
+        PasswordField ansQuestionField = new PasswordField();             // gridpane 11 - enter new password
         Button changePasswordButton = new Button("Change Password");
-
-        gridPane.add(newPasswordLabel, 0, 0);
-        gridPane.add(newPasswordField, 1, 0);
-        gridPane.add(changePasswordButton, 1, 1);
-
         changePasswordButton.setOnAction(e -> {
-            String newPassword = newPasswordField.getText();
+            String newPassword = currentPasswordField.getText();
             // Save the new password logic here
 
             isFirstTimeLogin = false;
             showMainPage();
         });
+        gridPane2.add(chooseSecurityQuestion, 0, 0);
+        gridPane2.add(secQuestionField, 1, 0);
+        gridPane2.add(ansSecurityQuestion, 0, 1);
+        gridPane2.add(ansQuestionField, 1, 1);
+        gridPane2.add(changePasswordButton, 0, 2);
+        
+        VBox vbox = new VBox();
+        vbox.getChildren().addAll(gridPane1, gridPane2);
 
-        Scene scene = new Scene(gridPane, 450, 500);
+        Scene scene = new Scene(vbox, 450, 500);
         primaryStage.setScene(scene);
     }
-
     private void showMainPage() {
         // Logic to show the main page after successful login
 
