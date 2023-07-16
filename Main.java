@@ -12,6 +12,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -26,7 +27,7 @@ public class Main extends Application {
 
         GridPane gridPane = createLoginForm();
         Scene scene = new Scene(gridPane, 450, 450);
-        primaryStage.setTitle("Insert some title");
+        primaryStage.setTitle("Login page");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -35,7 +36,7 @@ public class Main extends Application {
         GridPane gridPane = new GridPane();       // use GridPane to display
         gridPane.setPadding(new Insets(10));      // format
         gridPane.setVgap(20);
-        
+        gridPane.setStyle("-fx-background-color: cyan;");
         // create and position labels/buttons
         Label welcomeLabel = new Label("Welcome user! Enter your password:");
         Label passwordLabel = new Label("Password:");
@@ -76,7 +77,7 @@ public class Main extends Application {
         }
     }
 
-      private void showChangePasswordPage() {
+    private void showChangePasswordPage() {
         GridPane gridPane1 = new GridPane();
         gridPane1.setPadding(new Insets(20));
         gridPane1.setVgap(15);
@@ -98,11 +99,12 @@ public class Main extends Application {
         gridPane1.add(confirmPasswordLabel, 0, 2);
         gridPane1.add(confirmPasswordField, 1, 2);
         
-        Label chooseSecurityQuestion = new Label("Choose Security question:");// gridpane 00 - current password
-        PasswordField secQuestionField = new PasswordField();         // gridpane 10 - enter current password
-        Label ansSecurityQuestion = new Label("Answer security question:");		  // gridpane 01 - new password
-        PasswordField ansQuestionField = new PasswordField();             // gridpane 11 - enter new password
-        Button changePasswordButton = new Button("Change Password");
+        Label chooseSecurityQuestion = new Label("Choose Security question:"); // gridpane 00 - security question
+        PasswordField secQuestionField = new PasswordField();        		   // gridpane 10 - enter text
+        Label ansSecurityQuestion = new Label("Answer security question:");	   // gridpane 01 - answer question
+        PasswordField ansQuestionField = new PasswordField();             	   // gridpane 11 - enter question
+        Button changePasswordButton = new Button("Change Password");           // gridPane 02 - change pwd button
+        Button logoutButton = new Button("Logout"); 						   // gridPane 12 - logout button
         changePasswordButton.setOnAction(e -> {
             String newPassword = currentPasswordField.getText();
             // Save the new password logic here
@@ -110,18 +112,24 @@ public class Main extends Application {
             isFirstTimeLogin = false;
             showMainPage();
         });
+        logoutButton.setOnAction(e -> {
+        	showMainPage();
+        });
         gridPane2.add(chooseSecurityQuestion, 0, 0);
         gridPane2.add(secQuestionField, 1, 0);
         gridPane2.add(ansSecurityQuestion, 0, 1);
         gridPane2.add(ansQuestionField, 1, 1);
         gridPane2.add(changePasswordButton, 0, 2);
+        gridPane2.add(logoutButton, 1, 2);
         
         VBox vbox = new VBox();
         vbox.getChildren().addAll(gridPane1, gridPane2);
+        vbox.setStyle("-fx-background-color: cyan;");
 
         Scene scene = new Scene(vbox, 450, 500);
         primaryStage.setScene(scene);
     }
+
     private void showMainPage() {
         // Logic to show the main page after successful login
 
