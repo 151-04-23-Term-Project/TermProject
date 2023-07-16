@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class LoginSuccessController {
+public class LoginController {
 	
 	ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
 	
@@ -26,13 +26,13 @@ public class LoginSuccessController {
 	}*/
 	
     @FXML
-    private Button Logout;
+    private Button LoginButton;
 
     @FXML
     void goNext(MouseEvent event) throws Exception{
-    	Stage stage = (Stage) Logout.getScene().getWindow();
-    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("LoginPage.fxml"));
-    	stage.setTitle("Stage 3");
+    	Stage stage = (Stage) LoginButton.getScene().getWindow();
+    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+    	stage.setTitle("To Change Password Page");
     	stage.setScene(new Scene(root));
 		stage.show();
     	//Stage stage = ChangePWButton.getScene().getWindow();
