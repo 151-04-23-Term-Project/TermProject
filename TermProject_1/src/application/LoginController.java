@@ -20,24 +20,38 @@ public class LoginController {
 	
 	@FXML private ComboBox<String> questionOptionsBox;
 	
-	/*@FXML private void initialize() {
-		questionOptionsBox.setValue("Who is your favorite author?");
-		questionOptionsBox.setItems(questionsList);
-	}*/
 	
     @FXML
     private Button LoginButton;
 
     @FXML
-    void goNext(MouseEvent event) throws Exception{
-    	Stage stage = (Stage) LoginButton.getScene().getWindow();
-    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
-    	stage.setTitle("To Change Password Page");
+//    void goNext(MouseEvent event) throws Exception{
+//    	Stage stage = (Stage) LoginButton.getScene().getWindow();
+//    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
+//    	stage.setTitle("To Change Password Page");
+//    	stage.setScene(new Scene(root));
+//		stage.show();
+//    	//Stage stage = ChangePWButton.getScene().getWindow();
+//    }
+
+    void handleLogin(MouseEvent event) throws Exception {
+//    	handle the logic for a new or not new log in
+//    	TODO: add a variable to tell if its firsttime or not
+    	boolean FirstLogIn = false;
+		Stage stage = (Stage) LoginButton.getScene().getWindow();
+		BorderPane root;
+    	if (FirstLogIn == false) {
+        	root = (BorderPane)FXMLLoader.load(getClass().getResource("Journals.fxml"));
+        	stage.setTitle("Log In");
+    	}
+    	else {
+        	root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
+        	stage.setTitle("Change Password Page");
+    		FirstLogIn = false;
+    	}
     	stage.setScene(new Scene(root));
 		stage.show();
-    	//Stage stage = ChangePWButton.getScene().getWindow();
     }
-
 	
 
 	
