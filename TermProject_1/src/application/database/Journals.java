@@ -5,7 +5,7 @@ import java.sql.*;
 public class Journals {
 	private static final String url = "jdbc:mysql://localhost:3306/sampledb";
 	private static final String username = "root";
-	private static final String password = "gael7865";
+	private static final String password = "password";
 
 
     private static Connection getConnection() throws SQLException {
