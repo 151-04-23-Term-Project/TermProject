@@ -12,6 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+
+/**
+ * This class handles the default password page that logs a user into the system for the first time. This class points the user to the change password page before going to the main journal page.
+ */
 public class LoginController {
 	
 	ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
@@ -20,19 +24,23 @@ public class LoginController {
 	
 	@FXML private ComboBox<String> questionOptionsBox;
 	
-	
     @FXML
     private Button LoginButton;
 
+    /**
+     * TODO: Move variable to PreLoginController, which is the updated main page when application is launched.
+     * @param event occurs when user enters default password and clicks login button
+     * @throws Exception
+     */
     @FXML
-//    void goNext(MouseEvent event) throws Exception{
-//    	Stage stage = (Stage) LoginButton.getScene().getWindow();
-//    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
-//    	stage.setTitle("To Change Password Page");
-//    	stage.setScene(new Scene(root));
-//		stage.show();
-//    	//Stage stage = ChangePWButton.getScene().getWindow();
-//    }
+    void LoginDirect(MouseEvent event) throws Exception{
+    	Stage stage = (Stage) LoginButton.getScene().getWindow();
+		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
+    	stage.setTitle("Change Password Page");
+    	stage.setScene(new Scene(root));
+		stage.show();
+
+    }
 
     void handleLogin(MouseEvent event) throws Exception {
 //    	handle the logic for a new or not new log in

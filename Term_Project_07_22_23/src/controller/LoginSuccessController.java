@@ -12,10 +12,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * This class handles the main journal entry page for users. It has the option to direct users to logout (returning user login page) or have users start a new journal entry.
+ */
+
 public class LoginSuccessController {
-	
-	ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
-	
+		
 	@FXML private TextField securityQuestionField;
 	
 	@FXML private ComboBox<String> questionOptionsBox;
@@ -34,6 +36,11 @@ public class LoginSuccessController {
     
     Stage stage;
     BorderPane root;
+    /**
+     * This method directs user to a new journal creation page.
+     * @param event occurs when user clicks button "New Entry" to create a new journal. Redirects user to journal creation page.
+     * @throws Exception
+     */
     
     @FXML
     void newJournal(MouseEvent event) throws Exception{
@@ -43,7 +50,11 @@ public class LoginSuccessController {
     	stage.setScene(new Scene(root));
 		stage.show();
     }    
-    
+    /**
+     * This method returns user to returning user login page.
+     * @param event occurs when user clicks "Logout" button
+     * @throws Exception
+     */
     @FXML
     void goNext(MouseEvent event) throws Exception{
     	stage = (Stage) Logout.getScene().getWindow();

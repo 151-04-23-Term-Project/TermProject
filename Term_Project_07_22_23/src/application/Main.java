@@ -6,9 +6,19 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * This is a javadoc for Your Journal, a personalized journal available as a desktop application
+ * @author Elayna Seguin, Gael Gil, Devansh Bhargava
+ */
 
+/**
+ * This class is used to start the application, it directs the application to the first stage, which displays an option to either login for the first time or return to the application.
+ */
 public class Main extends Application {
 	@Override
+	/**
+	 * This function accepts a @param Stage Class which is used to show the first page of the application.
+	 */
 	public void start(Stage primaryStage) {
 		try {
 			//BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("LoginPage.fxml"));

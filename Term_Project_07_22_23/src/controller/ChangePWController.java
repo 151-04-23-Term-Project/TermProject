@@ -12,9 +12,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * This class is used to control the change password page for an initial login from the user. The user will automatically be redirected to this page after entering the default password.
+ */
 public class ChangePWController {
 	
-	ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
+	//ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
 	
 	@FXML private TextField securityQuestionField;
 	
@@ -27,6 +30,13 @@ public class ChangePWController {
 	
     @FXML
     private Button ChangePWButton;
+    
+    /**
+     * This method is used to redirect the application after successfully filling out the required fields to change the password. 
+     * The required fields include a custom security question, security question answer, default password, new password, confirm new password.
+     * @param event is a mouse click on the change password button confirming changes
+     * @throws Exception
+     */
 
     @FXML
     void goNext(MouseEvent event) throws Exception{

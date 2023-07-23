@@ -9,6 +9,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+/**
+ * This class is used to create a new journal within the application. After creating a new journal, the user will have the option to save the journal. 
+ * If at any time the user wishes to leave the page, they can cancel the journal creation by the cancel button.
+ */
 public class CreateJournalController {
 
     @FXML
@@ -21,6 +25,12 @@ public class CreateJournalController {
     Stage stage;
 	BorderPane root;
 	
+	/**
+	 * This method cancels journal creation and redirects user to main journal screen.
+	 * @param event occurs when return button is clicked
+	 * @throws Exception
+	 */
+	
     @FXML
     void Return(MouseEvent event) throws Exception{
     	stage = (Stage) Save.getScene().getWindow();
@@ -29,6 +39,11 @@ public class CreateJournalController {
 		stage.setScene(new Scene(root));
 		stage.show();
     }
+    /**
+     * This method saves the user's journal progress so far and redirects to main journal screen.
+     * @param event is created when save button is clicked
+     * @throws Exception
+     */
 
     @FXML
     void Save(MouseEvent event) throws Exception{
