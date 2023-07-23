@@ -48,10 +48,10 @@ public class LoginController {
     	if (FirstLogIn == true) {
         	//root = (BorderPane)FXMLLoader.load(getClass().getResource("Journals.fxml"));
         	//stage.setTitle("Log In");
-    		if (pw.equals("p")) {
+//    		if (pw.equals("p")) {
         		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
             	stage.setTitle("Change Password Page");
-    		}
+//    		}
 
     	}
     	else {
