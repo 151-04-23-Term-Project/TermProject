@@ -16,7 +16,7 @@
                   <Image url="@../images/LoginPageTemplate.JPG" />
                </image>
             </ImageView>
-            <TextField layoutX="447.0" layoutY="116.0" prefHeight="31.0" prefWidth="203.0" promptText="Enter Default Password" />
+            <TextField fx:id="defaultPassword" layoutX="447.0" layoutY="116.0" prefHeight="31.0" prefWidth="203.0" promptText="Enter Default Password" />
             <Button fx:id="LoginButton" layoutX="671.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#handleLogin" prefHeight="30.0" prefWidth="78.0" text="Login" textFill="#5d6e52" />
          </children>
       </AnchorPane>

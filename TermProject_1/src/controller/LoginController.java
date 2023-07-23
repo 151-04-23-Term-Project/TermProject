@@ -23,6 +23,9 @@ public class LoginController {
 	
     @FXML
     private Button LoginButton;
+    
+    @FXML 
+    private TextField defaultPassword;
 
     @FXML
 //    void goNext(MouseEvent event) throws Exception{
@@ -38,14 +41,18 @@ public class LoginController {
 //    	handle the logic for a new or not new log in
 //    	TODO: add a variable to tell if its first time or not
     	boolean FirstLogIn = false;
+    	String pw = defaultPassword.getText();
 		Stage stage = (Stage) LoginButton.getScene().getWindow();
 		BorderPane root;
 		//Changed to true
     	if (FirstLogIn == true) {
         	//root = (BorderPane)FXMLLoader.load(getClass().getResource("Journals.fxml"));
         	//stage.setTitle("Log In");
-    		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
-        	stage.setTitle("Change Password Page");
+    		if (pw.equals("p")) {
+        		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
+            	stage.setTitle("Change Password Page");
+    		}
+
     	}
     	else {
     		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/LoginSuccessPage.fxml"));
