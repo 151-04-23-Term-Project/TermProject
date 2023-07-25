@@ -1,0 +1,38 @@
+package cntrllr;
+
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+
+public class CreateNewJournalController {
+	
+//	ObservableList<String> questionsList = FXCollections.observableArrayList("Who is your favorite author?","What is your favorite book?","What is your first pet's name?");
+	
+//	@FXML private TextField securityQuestionField;
+	
+//	@FXML private ComboBox<String> questionOptionsBox;
+	
+	/*@FXML private void initialize() {
+		questionOptionsBox.setValue("Who is your favorite author?");
+		questionOptionsBox.setItems(questionsList);
+	}*/
+	
+    @FXML
+    private Button CreateNewJournalButton;
+
+    /*@FXML
+    void goNext(MouseEvent event) throws Exception{
+    	Stage stage = (Stage)  CreateNewJournalButton.getScene().getWindow();
+    	BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
+    	stage.setTitle("To Change Password Page");
+    	stage.setScene(new Scene(root));
+		stage.show();
+    	//Stage stage = ChangePWButton.getScene().getWindow();
+    }*/
+    
+    
+
+}
+	
