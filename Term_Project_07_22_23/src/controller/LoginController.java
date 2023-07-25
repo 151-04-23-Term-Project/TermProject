@@ -41,7 +41,7 @@ public class LoginController {
 		stage.show();
 
     }
-
+/*
     void handleLogin(MouseEvent event) throws Exception {
 //    	handle the logic for a new or not new log in
 //    	TODO: add a variable to tell if its first time or not
@@ -65,6 +65,7 @@ public class LoginController {
     	stage.setScene(new Scene(root));
 		stage.show();
     }
+    */
 	
 
 	
