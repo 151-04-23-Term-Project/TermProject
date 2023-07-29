@@ -60,10 +60,12 @@ public class Database {
      */
     public static void updateJournal(int id, String newTitle, String newDate, String newText) throws SQLException {
         try (Connection connection = getConnection(DB)) {
-            String updateDataSql = "UPDATE journal SET title = ? WHERE id = ?";
+            String updateDataSql = "UPDATE journal SET title = ?, date = ?, jText = ? WHERE id = ?";
             try (PreparedStatement statement = connection.prepareStatement(updateDataSql)) {
-                statement.setString(1, newTitle);
-                statement.setInt(2, id);
+            statement.setString(1, newTitle);
+            statement.setString(2, newDate);
+            statement.setString(3, newText);
+            statement.setInt(4, id);
                 statement.executeUpdate();
             }
         }
