@@ -1,5 +1,11 @@
 package controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -26,6 +33,14 @@ public class LoginController {
 	
     @FXML
     private Button LoginButton;
+    
+    @FXML
+    private TextField passEntry;
+    
+    @FXML
+    private Text invalidResult;
+    
+    //invalidResult.setDisable(true);
 
     /**
      * TODO: Move variable to PreLoginController, which is the updated main page when application is launched.
@@ -34,38 +49,54 @@ public class LoginController {
      */
     @FXML
     void LoginDirect(MouseEvent event) throws Exception{
-    	Stage stage = (Stage) LoginButton.getScene().getWindow();
-		BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
-    	stage.setTitle("Change Password Page");
-    	stage.setScene(new Scene(root));
-		stage.show();
-
-    }
-/*
-    void handleLogin(MouseEvent event) throws Exception {
-//    	handle the logic for a new or not new log in
-//    	TODO: add a variable to tell if its first time or not
-    	boolean FirstLogIn = false;
-		Stage stage = (Stage) LoginButton.getScene().getWindow();
-		BorderPane root;
-		//Changed to true
-    	if (FirstLogIn == true) {
-        	//root = (BorderPane)FXMLLoader.load(getClass().getResource("Journals.fxml"));
-        	//stage.setTitle("Log In");
-    		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
-        	stage.setTitle("Change Password Page");
+    	invalidResult.setVisible(false);
+    	boolean res = verifydefault();
+    	if (res == true) {
+	    	Stage stage = (Stage) LoginButton.getScene().getWindow();
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ChangePassword.fxml"));
+	    	stage.setTitle("Change Password Page");
+	    	stage.setScene(new Scene(root));
+			stage.show();
     	}
     	else {
-    		root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/LoginSuccessPage.fxml"));
-        	//root = (BorderPane)FXMLLoader.load(getClass().getResource("ChangePassword.fxml"));
-        	//stage.setTitle("Change Password Page");
-    		FirstLogIn = false;
-    		stage.setTitle("Main Page");
+    		invalidResult.setVisible(true);
+    		
     	}
-    	stage.setScene(new Scene(root));
-		stage.show();
+
     }
-    */
+    
+    
+    public boolean verifydefault(){
+    	//enter path to default password file to authenticate
+	    //File file = new File("C:\\Users\\Owner\\eclipse-workspace\\Term_Project_07_22_23\\src\\controller\\Default_Password.txt");
+    	Path path = Paths.get("src\\controller\\Default_Password.txt");
+    	String absPath = path.toAbsolutePath().toString();
+    	absPath = absPath.replace("\\","\\\\");
+    	//System.out.println(absPath);
+	    File file = new File(absPath);
+		
+		//Scanner scanner;
+		try {
+			String entry = passEntry.getText();
+			String password = null;
+			Scanner scanner = new Scanner(file);
+			while(scanner.hasNext()) {
+				password = scanner.next();	
+		    }
+			scanner.close();
+			if (password.equals(entry)) {
+				return true;
+			}
+			
+		} 
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+			System.out.println("failed");
+			return false;
+    }
 	
 
 	
