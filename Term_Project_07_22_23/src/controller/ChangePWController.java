@@ -54,6 +54,12 @@ public class ChangePWController {
      */
 
   //need more rigorous way to verify that fields are not blank, null does not work
+   
+    /**
+     * This method takes user to main page after successfully changing password
+     * @param event occurs on button mouse click
+     * @throws Exception
+     */
     @FXML
     void goNext(MouseEvent event) throws Exception{
     	if(setSecQ() && verifyDefault() && confirmPass() == true) {
@@ -71,7 +77,11 @@ public class ChangePWController {
 			//invalidResult.setVisible(true);
 		}
     }
-
+    
+    /**
+     * Verifies user input to password in text file
+     * @return true if default password matches user entry, else false
+     */
     public boolean verifyDefault(){
     	//enter path to default password file to authenticate
 	    //File file = new File("C:\\Users\\Owner\\eclipse-workspace\\Term_Project_07_22_23\\src\\controller\\Default_Password.txt");
@@ -102,7 +112,11 @@ public class ChangePWController {
 		
 			return false;
     }
-
+    
+    /**
+     * Verifies user input for new password matches, saves in text file "user password"
+     * @return true if user input for password and confirmation match, else false
+     */
     public boolean confirmPass() {
     	String pass = NewPass.getText();
     	String cpass = ConfirmPass.getText();
@@ -128,7 +142,10 @@ public class ChangePWController {
 		return false;
     }
 	
-    
+    /**
+     * Set's user security question that will verify identity on password reset
+     * @return true if both fields (question/answer) filled, else false
+     */
 	public boolean setSecQ() {
 		String question = SecQ.getText();
 		String answer = SecQAnswer.getText();

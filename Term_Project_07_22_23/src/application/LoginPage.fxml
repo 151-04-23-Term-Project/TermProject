@@ -20,7 +20,7 @@
             </ImageView>
             <TextField fx:id="passEntry" layoutX="447.0" layoutY="116.0" prefHeight="31.0" prefWidth="203.0" promptText="Enter Default Password" />
             <Button fx:id="LoginButton" layoutX="671.0" layoutY="115.0" mnemonicParsing="false" onMouseClicked="#LoginDirect" prefHeight="30.0" prefWidth="78.0" text="Login" textFill="#5d6e52" />
-            <Text fx:id="invalidResult" disable="true" fill="#f80000" layoutX="447.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid entry, try again" wrappingWidth="275.13671875">
+            <Text fx:id="invalidResult" fill="#f80000" layoutX="447.0" layoutY="170.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid entry, try again" visible="false" wrappingWidth="275.13671875">
                <font>
                   <Font size="21.0" />
                </font>

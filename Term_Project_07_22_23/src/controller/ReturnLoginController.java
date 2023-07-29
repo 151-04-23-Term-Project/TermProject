@@ -1,5 +1,11 @@
 package controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 import javafx.collections.FXCollections;
 
 import javafx.fxml.FXML;
@@ -8,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -32,6 +39,9 @@ public class ReturnLoginController {
     void GoReset(MouseEvent event) throws Exception{
     	stage = (Stage) ResetPass.getScene().getWindow();
     	root = (BorderPane)FXMLLoader.load(getClass().getResource("/application/ResetPassword.fxml"));
+    	Text text = new Text();
+    	String question = showText();
+    	text.setText(question);
 		stage.setTitle("Reset Password");
 		stage.setScene(new Scene(root));
 		stage.show();
@@ -50,5 +60,32 @@ public class ReturnLoginController {
 		stage.show();
 
     }
+    
+    public String showText() {
+			
+		Path path = Paths.get("src\\controller\\SecQuestion.txt");
+    	String absPath = path.toAbsolutePath().toString();
+    	absPath = absPath.replace("\\","\\\\");
+    	//System.out.println(absPath);
+	    File file = new File(absPath);
+		
+		//Scanner scanner;
+		try {
+			String question = null;
+			Scanner scanner = new Scanner(file);
+			while(scanner.hasNext()) {
+				question = scanner.next();	
+		    }
+			scanner.close();
+			return question;
+			
+			
+		}
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

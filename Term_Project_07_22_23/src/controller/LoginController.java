@@ -40,6 +40,7 @@ public class LoginController {
     @FXML
     private Text invalidResult;
     
+    
     //invalidResult.setDisable(true);
 
     /**
@@ -59,13 +60,17 @@ public class LoginController {
 			stage.show();
     	}
     	else {
+    		invalidResult.setOpacity(1);
     		invalidResult.setVisible(true);
     		
     	}
 
     }
     
-    
+    /**
+     * This method adds authentication of user default password, found in default password text file
+     * @return true if user entry matches default password on file
+     */
     public boolean verifydefault(){
     	//enter path to default password file to authenticate
 	    //File file = new File("C:\\Users\\Owner\\eclipse-workspace\\Term_Project_07_22_23\\src\\controller\\Default_Password.txt");
@@ -74,7 +79,7 @@ public class LoginController {
     	absPath = absPath.replace("\\","\\\\");
     	//System.out.println(absPath);
 	    File file = new File(absPath);
-		
+	    invalidResult.setOpacity(0);
 		//Scanner scanner;
 		try {
 			String entry = passEntry.getText();
